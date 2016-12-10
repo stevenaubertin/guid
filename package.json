@@ -1,0 +1,25 @@
+{
+  "name": "guid generator",
+  "version": "1.0.0",
+  "description": "Simple Electron Guid Generator",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "https://github.com/stevenaubertin/guid",
+  "keywords": [
+    "electron",
+    "guid",
+    "generator",
+    "random",
+    "number",
+    "javascript",
+    "typescript",
+    "material",
+    "materializecss"
+  ],
+  "author": "stevenaubertin",
+  "devDependencies": {
+    "electron": "^1.4.1"
+  }
+}

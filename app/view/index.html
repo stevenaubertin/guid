@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+        <!--Import Google Icon Font-->
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!-- Insert this line above script imports  -->
+        <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+        <!-- normal script imports etc  -->
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="../js/materialize.min.js"></script>
+        <!-- Insert this line after script imports -->
+        <script>if (window.module) module = window.module;</script>
+        <!--Import materialize.css-->
+        <link type="text/css" rel="stylesheet" href="../css/materialize.min.css"  media="screen,projection"/>
+        <link type="text/css" rel="stylesheet" href="../css/style.css"  media="screen,projection"/>
+        <!--Let browser know website is optimized for mobile-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta charset="UTF-8">
+        <title class="title"></title>
+    </head>
+  <body>
+  <nav class="drag-area green">
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo center">GUID Generator</a>
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
+      </ul>
+    </div>
+  </nav>
+  <main>
+    <div class="row">
+        <div class="col s12">
+          <div class="section">
+            <div class="input-field">
+                <input value="" id="uuid-id" type="text" class="validate" disabled style="color: black;">
+                <label class="active" for="uuid-id" />
+            </div>
+            <button id="generate-btn-id" class="right btn-floating btn-large waves-effect waves-button-input" style="margin-top: -47px;"><i class="material-icons">add</i></button>
+          </div>
+          <div class="section">
+            <h5>Format</h5>
+            <div class="divider"></div>
+            <p>
+              <div class="input-field">
+                <input type="checkbox" id="braces-id" checked/>
+                <label for="braces-id">Braces</label>
+                <br>
+                <input type="checkbox" id="dashes-id" checked/>
+                <label for="dashes-id">Dashes</label>
+              </div>
+            </p>
+          </div>
+        </div>
+    </div>
+  </main>
+  <footer class="page-footer green">
+    <div class="container">
+      <div class="row">
+        <div class="col l4 offset-l2 s12">
+          <h5 class="white-text">Links</h5>
+          <ul>
+            <li><a class="grey-text text-lighten-3 open-in-browser" href="https://en.wikipedia.org/wiki/Globally_unique_identifier" target="_blank">Globally unique identifier</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+        <a class="grey-text text-lighten-4 open-in-browser" href="https://github.com/stevenaubertin" target="_blank">Steven Aubertin 2016</a>
+      </div>
+    </div>
+  </footer>
+  </body>
+  <script type="text/javascript">
+        require('../js/renderer.js');
+  </script>
+</html>
