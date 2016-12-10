@@ -1,5 +1,5 @@
 {
-  "name": "guid generator",
+  "name": "guidgenerator",
   "version": "1.0.0",
   "description": "Simple Electron Guid Generator",
   "main": "main.js",
