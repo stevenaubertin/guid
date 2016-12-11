@@ -1,9 +1,7 @@
-const electron = require('electron')
-// Module to control application life.
-const app = electron.app
-// Module to create native browser window.
-const BrowserWindow = electron.BrowserWindow
-
+// Module to create native browser window,
+// Module to control application life,
+// Module to create native application menus and context menus.
+const {BrowserWindow, app, Menu} = require('electron')
 const path = require('path')
 const url = require('url')
 const DEBUG = false;
@@ -18,20 +16,33 @@ function createWindow () {
 
   // and load the index.html of the app.
   mainWindow.loadURL(url.format({
-    pathname: path.join(__dirname, '/app/view/index.html'),
-    protocol: 'file:',
-    slashes: true
+      pathname: path.join(__dirname, '/app/view/index.html'),
+      protocol: 'file:',
+      slashes: true
   }))
 
   // Open the DevTools.
-  if(DEBUG)mainWindow.webContents.openDevTools()
+  if(DEBUG) mainWindow.webContents.openDevTools()
+
+  // Create the Application's main menu
+  var template = [{
+      label: "Application",
+      submenu: [
+          { label: "Quit", accelerator: "Command+Q", click: function() { app.quit(); }}
+      ]}, {
+      label: "Edit",
+      submenu: [
+          { label: "Copy", accelerator: "CmdOrCtrl+C", selector: "copy:" },
+      ]}
+  ];
+  Menu.setApplicationMenu(Menu.buildFromTemplate(template));
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {
-    // Dereference the window object, usually you would store windows
-    // in an array if your app supports multi windows, this is the time
-    // when you should delete the corresponding element.
-    mainWindow = null
+      // Dereference the window object, usually you would store windows
+      // in an array if your app supports multi windows, this is the time
+      // when you should delete the corresponding element.
+      mainWindow = null
   })
 }
 
@@ -42,18 +53,18 @@ app.on('ready', createWindow)
 
 // Quit when all windows are closed.
 app.on('window-all-closed', function () {
-  // On OS X it is common for applications and their menu bar
-  // to stay active until the user quits explicitly with Cmd + Q
-  if (process.platform !== 'darwin') {
-    app.quit()
-  }
+    // On OS X it is common for applications and their menu bar
+    // to stay active until the user quits explicitly with Cmd + Q
+    if (process.platform !== 'darwin') {
+        app.quit()
+    }
 })
 
 app.on('activate', function () {
   // On OS X it's common to re-create a window in the app when the
   // dock icon is clicked and there are no other windows open.
   if (mainWindow === null) {
-    createWindow()
+      createWindow()
   }
 })
 
