@@ -16,7 +16,7 @@ const DataContext = new GuidViewModel(
 const updateView = () => $('#uuid-id').val(DataContext.toString());
 $('#lbl-uuid-id').dblclick(() => {
     clipboard.writeText(DataContext.toString(), 'selection');
-    Materialize.toast('Guid copied to clipboar', 4000);
+    Materialize.toast('Guid copied to clipboard', 4000);
 });
 $('#braces-id').click(() => {
     DataContext.setBraces(BRACES.checked);
