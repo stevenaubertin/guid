@@ -6,7 +6,7 @@
 
 Application that generates [Guids](https://en.wikipedia.org/wiki/Globally_unique_identifier).
 
-This is a minimal [Electron](electron.atom.io) application based on the [Quick Start Guide](http://electron.atom.io/docs/latest/tutorial/quick-start) within the Electron documentation.
+This is a minimal [Electron](http://electron.atom.io) application based on the [Quick Start Guide](http://electron.atom.io/docs/latest/tutorial/quick-start) within the Electron documentation.
 
 The application was design using [Materialize](http://materializecss.com/).
 
