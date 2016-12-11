@@ -36,7 +36,7 @@ $('.open-in-browser').click((event) => {
     shell.openExternal(event.target.href);
 });
 (function(){
-    $('.title').each(function(i){$(this).text('electron guid 1.1')});
+    $('.title').each(function(i){$(this).text('electron guid 1.2')});
 
     BRACES.checked = true;
     DASHES.checked = true;
