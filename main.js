@@ -10,6 +10,24 @@ const DEBUG = false;
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
 
+function createMenu(){
+    var template = null;
+    if (process.platform === 'darwin') {
+        template = [{
+            label: "Application",
+            submenu: [
+                { label: "Quit", accelerator: "Command+Q", click: function() { app.quit(); }}
+            ]}, {
+            label: "Edit",
+            submenu: [
+                { label: "Copy", accelerator: "CmdOrCtrl+C", selector: "copy:" },
+            ]}
+        ];
+    }
+    if(template != null)Menu.setApplicationMenu(Menu.buildFromTemplate(template));
+    else console.log('Menu is null, platform not supported');
+};
+
 function createWindow () {
   // Create the browser window.
   mainWindow = new BrowserWindow({width: 390, height: 530, titleBarStyle: 'hidden', resizable:false})
@@ -25,17 +43,7 @@ function createWindow () {
   if(DEBUG) mainWindow.webContents.openDevTools()
 
   // Create the Application's main menu
-  var template = [{
-      label: "Application",
-      submenu: [
-          { label: "Quit", accelerator: "Command+Q", click: function() { app.quit(); }}
-      ]}, {
-      label: "Edit",
-      submenu: [
-          { label: "Copy", accelerator: "CmdOrCtrl+C", selector: "copy:" },
-      ]}
-  ];
-  Menu.setApplicationMenu(Menu.buildFromTemplate(template));
+  createMenu();
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {
