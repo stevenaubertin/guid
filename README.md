@@ -1,8 +1,10 @@
 # Electron Guid Generator
 
+![alt](https://github.com/stevenaubertin/pictures/blob/master/guid/preview.png)
+
 ## Info
 
-Simple [electron](electron.atom.io) [guid](https://en.wikipedia.org/wiki/Globally_unique_identifier) Generator
+Application that generates [Guids](https://en.wikipedia.org/wiki/Globally_unique_identifier).
 
 This is a minimal [Electron](electron.atom.io) application based on the [Quick Start Guide](http://electron.atom.io/docs/latest/tutorial/quick-start) within the Electron documentation.
 
@@ -19,7 +21,7 @@ git clone https://github.com/stevenaubertin/guid
 cd guid
 # Install dependencies
 npm install
-# Build the application's script (typescript)
+# Build the application's scripts (typescript)
 tsc
 # Run the app
 npm start
