@@ -2,7 +2,7 @@
 
 ![alt](https://github.com/stevenaubertin/pictures/blob/master/guid/preview.png)
 
-## Info
+## Synopsis
 
 Application that generates [Guids](https://en.wikipedia.org/wiki/Globally_unique_identifier).
 
