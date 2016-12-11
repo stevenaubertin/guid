@@ -2,9 +2,8 @@
 // be executed in the renderer process for that window.
 // All of the Node.js APIs are available in this process.
 
+const {ipcRenderer, clipboard, shell} = require('electron');
 const BrowserWindow = require('electron').remote.BrowserWindow;
-const {ipcRenderer} = require('electron');
-const {shell} = require('electron');
 const path = require('path');
 const {GUID, GuidFormat} = require('../js/GUID.js');
 const {GuidViewModel} = require('../js/GuidViewModel.js');
@@ -14,9 +13,11 @@ const DataContext = new GuidViewModel(
     GUID.generate(0), 
     (BRACES.checked ? GuidFormat.BRACES : 0) | (DASHES.checked ? GuidFormat.DASHES : 0)
 );
-const updateView = () => {
-    $('#uuid-id').val(DataContext.toString());
-};
+const updateView = () => $('#uuid-id').val(DataContext.toString());
+$('#lbl-uuid-id').dblclick(() => {
+    clipboard.writeText(DataContext.toString(), 'selection');
+    Materialize.toast('Guid copied to clipboar', 4000);
+});
 $('#braces-id').click(() => {
     DataContext.setBraces(BRACES.checked);
     updateView();
@@ -35,7 +36,7 @@ $('.open-in-browser').click((event) => {
     shell.openExternal(event.target.href);
 });
 (function(){
-    $('.title').each(function(i){$(this).text('electron guid 1.0')});
+    $('.title').each(function(i){$(this).text('electron guid 1.1')});
 
     BRACES.checked = true;
     DASHES.checked = true;
