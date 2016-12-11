@@ -6,7 +6,7 @@ Simple [electron](electron.atom.io) [guid](https://en.wikipedia.org/wiki/Globall
 
 This is a minimal [Electron](electron.atom.io) application based on the [Quick Start Guide](http://electron.atom.io/docs/latest/tutorial/quick-start) within the Electron documentation.
 
-The application was build using [Materialize](http://materializecss.com/).
+The application was design using [Materialize](http://materializecss.com/).
 
 ## To Use
 
@@ -24,3 +24,5 @@ tsc
 # Run the app
 npm start
 ```
+
+#### License [MIT](LICENSE)
