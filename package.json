@@ -22,5 +22,5 @@
   "devDependencies": {
     "electron": "^1.4.1"
   },
-  "license": "MIT License"
+  "license": "MIT"
 }
