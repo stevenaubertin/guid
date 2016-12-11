@@ -20,7 +20,8 @@ function createMenu(){
             ]}, {
             label: "Edit",
             submenu: [
-                { label: "Copy", accelerator: "CmdOrCtrl+C", selector: "copy:" },
+                { label: "Copy",   accelerator: "CmdOrCtrl+C", selector: "copy:" },
+                { label: "Reload", accelerator: "CmdOrCtrl+R", click: function() {mainWindow.reload();} },
             ]}
         ];
     }
