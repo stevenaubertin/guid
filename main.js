@@ -34,7 +34,7 @@ function createMenu(){
 
 function createWindow () {
   // Create the browser window.
-  mainWindow = new BrowserWindow({width: 390, height: 530, titleBarStyle: 'hidden', resizable:false})
+  mainWindow = new BrowserWindow({width: 400, height:600, titleBarStyle: 'hidden', resizable:false})
 
   // and load the index.html of the app.
   mainWindow.loadURL(url.format({
