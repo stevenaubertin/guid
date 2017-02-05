@@ -12,8 +12,8 @@ let mainWindow
 
 function createMenu(){
     var template = null;
-    if (process.platform === 'darwin') {
-        template = [{
+     try{
+         template = [{
             label: "Application",
             submenu: [
                 { label: "Quit", accelerator: "Command+Q", click: function() { app.quit(); }}
@@ -24,6 +24,9 @@ function createMenu(){
                 { label: "Reload", accelerator: "CmdOrCtrl+R", click: function() {mainWindow.reload();} },
             ]}
         ];
+    }
+    catch(error){
+        template = null;
     }
     if(template != null)Menu.setApplicationMenu(Menu.buildFromTemplate(template));
     else console.log('Menu is null, platform not supported');
