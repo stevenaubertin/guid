@@ -14,10 +14,11 @@ const DataContext = new GuidViewModel(
     (BRACES.checked ? GuidFormat.BRACES : 0) | (DASHES.checked ? GuidFormat.DASHES : 0)
 );
 const updateView = () => $('#uuid-id').val(DataContext.toString());
-$('#lbl-uuid-id').dblclick(() => {
+const clipboardcopy = () => {
     clipboard.writeText(DataContext.toString(), 'selection');
     Materialize.toast('Guid copied to clipboard', 4000);
-});
+};
+$('#lbl-uuid-id').dblclick(clipboardcopy);
 $('#braces-id').click(() => {
     DataContext.setBraces(BRACES.checked);
     updateView();
@@ -36,8 +37,9 @@ $('.open-in-browser').click((event) => {
     shell.openExternal(event.target.href);
 });
 (function(){
-    $('.title').each(function(i){$(this).text('electron guid 1.2')});
+    $('.title').each(function(i){$(this).text('electron guid 1.3')});
 
+    //----- Update view
     BRACES.checked = true;
     DASHES.checked = true;
     updateView();
