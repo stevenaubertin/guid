@@ -21,6 +21,7 @@ git clone https://github.com/stevenaubertin/guid
 cd guid
 # Install dependencies
 npm install
+npm install -g typescript
 # Build the application's scripts (typescript)
 tsc
 # Run the app
