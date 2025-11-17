@@ -1,5 +1,5 @@
 
-import {GUID, GuidFormat} from './Guid';
+import {GUID, GuidFormat} from './GUID';
 
 export class GuidViewModel{
     private format:GuidFormat;
@@ -35,15 +35,15 @@ export class GuidViewModel{
         this.format = format;
     }
     public setBraces(bool:Boolean):void{
-        this.setFormat(bool ? 
-            this.getFormat() | GuidFormat.BRACES : 
-            this.getFormat() ^ GuidFormat.BRACES
+        this.setFormat(bool ?
+            this.getFormat() | GuidFormat.BRACES :
+            this.getFormat() & ~GuidFormat.BRACES
         );
     }
     public setDashes(bool:Boolean):void{
-        this.setFormat(bool ? 
-            this.getFormat() | GuidFormat.DASHES : 
-            this.getFormat() ^ GuidFormat.DASHES
+        this.setFormat(bool ?
+            this.getFormat() | GuidFormat.DASHES :
+            this.getFormat() & ~GuidFormat.DASHES
         );
     }
     public toString():string{

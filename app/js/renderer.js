@@ -2,15 +2,14 @@
 // be executed in the renderer process for that window.
 // All of the Node.js APIs are available in this process.
 
-const {ipcRenderer, clipboard, shell} = require('electron');
-const BrowserWindow = require('electron').remote.BrowserWindow;
+const {clipboard, shell} = require('electron');
 const path = require('path');
 const {GUID, GuidFormat} = require('../js/GUID.js');
 const {GuidViewModel} = require('../js/GuidViewModel.js');
 const BRACES = document.getElementById('braces-id');
 const DASHES = document.getElementById('dashes-id');
 const DataContext = new GuidViewModel(
-    GUID.generate(0), 
+    GUID.generate(),
     (BRACES.checked ? GuidFormat.BRACES : 0) | (DASHES.checked ? GuidFormat.DASHES : 0)
 );
 const updateView = () => $('#uuid-id').val(DataContext.toString());
@@ -28,8 +27,7 @@ $('#dashes-id').click(() => {
     updateView();
 });
 $('#generate-btn-id').click(() => {
-    let seed = 0;//TODO CHANGE THIS
-    DataContext.setGuid(GUID.generate(seed));
+    DataContext.setGuid(GUID.generate());
     updateView();
 });
 $('.open-in-browser').click((event) => {

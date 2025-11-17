@@ -11,7 +11,7 @@ const DEBUG = false;
 let mainWindow
 
 function createMenu(){
-    var template = null;
+    let template = null;
      try{
          template = [{
             label: "Application",
@@ -34,7 +34,16 @@ function createMenu(){
 
 function createWindow () {
   // Create the browser window.
-  mainWindow = new BrowserWindow({width: 400, height:600, titleBarStyle: 'hidden', resizable:false})
+  mainWindow = new BrowserWindow({
+    width: 400,
+    height: 600,
+    titleBarStyle: 'hidden',
+    resizable: false,
+    webPreferences: {
+      nodeIntegration: true,
+      contextIsolation: false
+    }
+  })
 
   // and load the index.html of the app.
   mainWindow.loadURL(url.format({

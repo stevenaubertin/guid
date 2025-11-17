@@ -20,7 +20,7 @@
   ],
   "author": "stevenaubertin",
   "devDependencies": {
-    "electron": "^1.4.1"
+    "electron": "^33.2.0"
   },
   "license": "MIT"
 }

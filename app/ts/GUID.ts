@@ -167,13 +167,9 @@ export class GUID{
         );
     }
 
-    public static generate(seed?:number):GUID{
-        if(seed==null){
-            seed = new Date().getTime();
-        }
+    public static generate():GUID{
+        const guid:GUID = new GUID();
 
-        var guid:GUID = new GUID();
-        
         crypto.getRandomValues(guid.Data1);//8bytes
         crypto.getRandomValues(guid.Data2);//4bytes
         crypto.getRandomValues(guid.Data3);//4bytes
@@ -204,28 +200,5 @@ export class GUID{
             arr[i] = parseInt(tmp, 16);
         }
         return arr;
-    }
-    
-    private static convolution(f:Uint8Array, g:Uint8Array):Uint8Array{
-        if(f == null)throw Error('f is null');
-        if(g == null)throw Error('g is null');
-        if(f == undefined)throw Error('f is undefined');
-        if(g == undefined)throw Error('g is undefined');
-        if(f.length==0)throw Error('f needs to be >= 1');
-        if(g.length==0)throw Error('g needs to be >= 1');
-        
-        const SIZE = f.length + g.length - 1;
-        let ret:Uint8Array = new Uint8Array(SIZE);
-        for(let n = 0; n < SIZE; ++n){
-            let tmp = 0;let kmin = (n >= g.length - 1) ? n - (g.length - 1) : 0;
-            let kmaX = (n <  f.length - 1) ? n : f.length - 1;
-            for(let k = kmin; k <= kmaX; ++k){
-                let signal = f[k];
-                let kernel = g[n - k];
-                tmp += (signal * kernel);
-            }
-            ret[n] = tmp;
-        }
-        return ret;
     }
 }
