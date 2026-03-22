@@ -40,3 +40,6 @@ GuidViewModel.js.map
 app/fonts
 GUID.js
 GUID.js.map
+
+# Claude Code local settings
+.claude/settings.local.json

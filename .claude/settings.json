@@ -1,0 +1,30 @@
+{
+  "$schema": "https://raw.githubusercontent.com/anthropics/claude-code/main/.claude/settings.schema.json",
+  "_comment": "Claude Code settings for Electron desktop app projects",
+  "env": {
+    "NODE_ENV": "development"
+  },
+  "hooks": {
+    "PreCommit": [
+      {
+        "command": "npx eslint ."
+      }
+    ]
+  },
+  "permissions": {
+    "allow": [
+      "npm install",
+      "npm run",
+      "npm test",
+      "npx eslint",
+      "npx prettier",
+      "npx electron .",
+      "npx electron-builder"
+    ],
+    "deny": [
+      "npm publish",
+      "rm -rf /",
+      "npx -y"
+    ]
+  }
+}
